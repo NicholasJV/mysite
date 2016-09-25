@@ -7,11 +7,11 @@ var ce = React.createElement
 var MyTitleFact = React.createFactory(MyTitle)
 
 var MyFirstComponent = (
-  div({style: {color: 'blue'}},
-    React.createElement(MyTitle, null),
-    ce(MyTitle, {title: 'Props are the best!', color: 'peru'}),
-    MyTitleFact({title: 'props af!', color: 'papayawhip'})
-  )
+    div({style: {color: 'blue'}},
+        MyTitleFact({title: 'Props are great!', color: 'rebeccapurple'}),
+        React.createElement(MyTitle, {title: 'Use props everywhere!', color: 'mediumaquamarine'}),
+        ce(MyTitle, {title: 'Props are the best!', color: 'peru'})
+    )
 )
 
 ReactDOM.render(MyFirstComponent, document.getElementById('app'))
