@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './js/BrowserEntry.jsx',
+  entry: './js/ClientApp.jsx',
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js',
@@ -13,21 +13,21 @@ module.exports = {
   },
   stats: {
     colors: true,
-    reasons: true,
-    chunks: true
+    reasons: true, // verbose error messages
+    chunks: false
   },
   module: {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint-loader'
+        loader: "eslint-loader",
+        exclude: /node_modules/
       }
     ],
-    loaders: [
+    loaders: [ // this is basically the build pipeline
       {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        include: path.join(__dirname, '/js')
+        test: /\.jsx?$/,  // this says "if test true", load the loader below:
+        loader: 'babel-loader'
       },
       {
         test: /\.json$/,

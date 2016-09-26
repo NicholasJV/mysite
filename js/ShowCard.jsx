@@ -1,26 +1,20 @@
 const React = require('react')
-const ReactRouter = require('react-router')
-const { Link } = ReactRouter
 
 const ShowCard = (props) => (
-  <Link to={`/details/${props.id}`}>
-    <div className='show-card'>
-      <img src={`/public/img/posters/${props.poster}`} className='show-card-img' />
-      <div className='show-card-text'>
-        <h3 className='show-card-title'>{props.title}</h3>
-        <h4 className='show-card-year'>({props.year})</h4>
-        <p className='show-card-description'>{props.description}</p>
-      </div>
+  <div className='show-card'>
+    <img src={`public/img/posters/${props.show.poster}`} className='show-card-img' />
+    <div className='show-card-text'>
+      <h3 className='show-card-title'>{props.show.title}</h3>
+      <h3 className='show-card-year'>{props.show.year}</h3>
+      <p className='show-card-description'>{props.show.description}</p>
+      <p>ID: {props.show.imdbID}</p>
     </div>
-  </Link>
+  </div>
 )
 
 ShowCard.propTypes = {
-  year: React.PropTypes.string.isRequired,
-  poster: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  id: React.PropTypes.number.isRequired
+  show: React.PropTypes.object.isRequired,
+  key: React.PropTypes.string
 }
 
 module.exports = ShowCard
