@@ -27,6 +27,10 @@ module.exports = {
       {
         test: /\.jsx?$/,  // this says "if test true", load the loader below:
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   }
